@@ -1,1 +1,204 @@
-/* Add your CSS here */
+/* Set a blue gradient background for the whole page */
+body {
+  /* Intel blue gradient background */
+  background: linear-gradient(135deg, #0071c5 0%, #00a6e0 100%);
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: #fff; /* White text for contrast */
+}
+
+/* Style the header section */
+header {
+  /* Center the content and add spacing */
+  text-align: center;
+  padding: 40px 20px 30px 20px;
+  background: rgba(0, 0, 0, 0.1); /* Slight overlay for readability */
+  border-bottom: 2px solid #fff;
+}
+
+/* Style the Intel logo */
+header img {
+  /* Set a fixed width for the logo */
+  width: 120px;
+  height: auto;
+  margin-bottom: 20px;
+  /* Add a little drop shadow for contrast */
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.2));
+}
+
+/* Main headline style */
+header h1 {
+  font-size: 2.2em;
+  margin: 10px 0 15px 0;
+  font-weight: bold;
+  letter-spacing: 1px;
+  /* Add a subtle text shadow for better contrast */
+  text-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+/* Subheading / description style */
+header p {
+  font-size: 1.1em;
+  max-width: 500px;
+  margin: 0 auto;
+  line-height: 1.5;
+  color: #e0f7fa; /* Lighter blue for subheading */
+}
+
+/* Soft off-white background for main content below the header */
+.main-content-bg {
+  /* Very light blueish-white, easy on the eyes and matches Intel's palette */
+  background-color: #f4fafd;
+  /* Add some padding for spacing */
+  padding: 30px 0;
+  /* Set Intel blue font color for content below the banner */
+  color: #0071c5;
+}
+
+/* Make all body text (except headers) black for readability */
+.main-content-bg,
+.main-content-bg p,
+.main-content-bg div,
+.main-content-bg section {
+  color: #000;
+}
+
+/* Timeline section: horizontal scroll on large screens */
+.main-content-bg section {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap; /* No wrapping on large screens */
+  overflow-x: auto; /* Enable horizontal scrolling */
+  gap: 20px;
+  padding: 20px 0;
+  /* Hide scrollbar for a cleaner look (optional for beginners) */
+  scrollbar-width: thin;
+  scrollbar-color: #0071c5 #f4fafd;
+}
+
+/* Style for each milestone (timeline) card */
+.main-content-bg section > div {
+  background: #ffffff; /* White card background */
+  border: 2px solid #e3eef7; /* Soft Intel blue border */
+  border-radius: 14px; /* Rounded corners */
+  min-width: 220px;
+  max-width: 300px;
+  width: 100%;
+  /* Set a fixed height for all cards so they don't change size on hover */
+  height: 220px;
+  padding: 22px 18px; /* More padding for space */
+  box-sizing: border-box;
+  box-shadow: 0 4px 16px rgba(0, 113, 197, 0.06); /* Subtle Intel blue shadow */
+  flex: 0 0 auto;
+  margin: 0 auto;
+  text-align: center;
+  transition: box-shadow 0.2s, border-color 0.2s;
+  position: relative; /* Needed for absolute positioning inside */
+  overflow: hidden;   /* Hide overflowing content */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Card hover effect with shadow */
+.main-content-bg section > div:hover {
+  box-shadow: 0 8px 32px rgba(0, 113, 197, 0.18), 0 2px 8px rgba(0,0,0,0.10);
+  border-color: #0071c5;
+}
+
+/* Hide additional details by default */
+.card-details {
+  display: none;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Show details and hide year/title on hover */
+.main-content-bg section > div:hover .card-details {
+  display: flex;
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: #fff;
+  border-radius: 14px;
+  z-index: 2;
+  padding: 22px 18px;
+  animation: fadeIn 0.3s;
+  /* Center the text vertically and horizontally */
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  /* Make sure text wraps and doesn't overflow */
+  overflow-wrap: break-word;
+  word-break: break-word;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+/* Make sure the paragraph inside .card-details wraps and is centered */
+.card-details p {
+  margin: 0;
+  color: #222;
+  font-size: 1em;
+  line-height: 1.5;
+  width: 100%;
+  text-align: center;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Hide the year and title when hovering */
+.main-content-bg section > div:hover h2,
+.main-content-bg section > div:hover h3 {
+  display: none;
+}
+
+/* Make sure headings are centered and spaced */
+.main-content-bg section > div h2,
+.main-content-bg section > div h3 {
+  color: #0071c5;
+  margin-top: 0;
+  margin-bottom: 8px;
+  width: 100%;
+}
+
+/* Card text spacing and color */
+.main-content-bg section > div p {
+  color: #222;
+  margin: 12px 0 0 0;
+  font-size: 1em;
+  line-height: 1.5;
+}
+
+/* Simple fade-in animation for details */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Responsive: stack cards vertically and fill width on small screens */
+@media (max-width: 700px) {
+  .main-content-bg section {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    overflow-x: visible;
+    gap: 16px;
+  }
+  .main-content-bg section > div {
+    min-width: 0;
+    max-width: 100%;
+    width: 100%;
+    margin: 0 0 12px 0;
+  }
+}
+
+/* Extra fix for very narrow screens (like 263px wide) */
+@media (max-width: 320px) {
+  .main-content-bg section > div {
+    padding: 12px 4px;
+    font-size: 0.95em;
+  }
+}
