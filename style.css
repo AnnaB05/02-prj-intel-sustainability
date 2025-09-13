@@ -63,11 +63,9 @@ header p {
 
 /* Soft off-white background for main content below the header */
 .main-content-bg {
-  /* Very light blueish-white, easy on the eyes and matches Intel's palette */
-  background-color: #f4fafd;
-  /* Add some padding for spacing */
+  /* Use a slightly darker, cool gray-blue shade for more shadow contrast */
+  background-color: #e6f0fa; /* Intel-inspired, not pure white, not blue */
   padding: 30px 0;
-  /* Set Intel blue font color for content below the banner */
   color: #0071c5;
 }
 
@@ -122,7 +120,10 @@ header p {
 
 /* Card hover effect with shadow */
 .main-content-bg section > div:hover {
-  box-shadow: 0 8px 32px rgba(0, 113, 197, 0.18), 0 2px 8px rgba(0,0,0,0.10);
+  /* Dramatic, noticeable shadow on hover */
+  box-shadow:
+    0 12px 32px 0 rgba(0, 113, 197, 0.30), /* Strong Intel blue shadow */
+    0 4px 24px 0 rgba(0,0,0,0.18);         /* Extra dark shadow for depth */
   border-color: #0071c5;
 }
 
@@ -295,5 +296,7 @@ header p {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+}
+}
 }
 }
