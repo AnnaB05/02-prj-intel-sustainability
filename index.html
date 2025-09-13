@@ -32,7 +32,8 @@
     <section>
 
       <!-- Card 1: 1968 -->
-      <div>
+      <div class="card-bg-1968">
+        <div class="card-overlay"></div>
         <h2>1968</h2>
         <h3>Intel Founded</h3>
         <!-- Add image -->
@@ -46,7 +47,8 @@
       </div>
 
       <!-- Card 2: 1971 -->
-      <div>
+      <div class="card-bg-1971">
+        <div class="card-overlay"></div>
         <h2>1971</h2>
         <h3>First Microprocessor</h3>
         <!-- Add image -->
@@ -60,7 +62,8 @@
       </div>
 
       <!-- Card 3: 1978 -->
-      <div>
+      <div class="card-bg-1978">
+        <div class="card-overlay"></div>
         <h2>1978</h2>
         <h3>8086 Processor</h3>
         <!-- Add image -->
@@ -73,7 +76,8 @@
       </div>
 
       <!-- Card 4: 1985 -->
-      <div>
+      <div class="card-bg-1985">
+        <div class="card-overlay"></div>
         <h2>1985</h2>
         <h3>386 Processor</h3>
         <!-- Add image -->
@@ -87,7 +91,8 @@
       </div>
 
       <!-- Card 5: 2006 -->
-      <div>
+      <div class="card-bg-2006">
+        <div class="card-overlay"></div>
         <h2>2006</h2>
         <h3>Peak GHG Emissions</h3>
         <!-- Add image -->
@@ -102,7 +107,8 @@
       </div>
 
       <!-- Card 6: 2020 -->
-      <div>
+      <div class="card-bg-2020">
+        <div class="card-overlay"></div>
         <h2>2020</h2>
         <h3>RISE Strategy</h3>
         <!-- Add image -->
@@ -116,7 +122,8 @@
       </div>
 
       <!-- Card 7: 2022 -->
-      <div>
+      <div class="card-bg-2022">
+        <div class="card-overlay"></div>
         <h2>2022</h2>
         <h3>Net-Zero By 2040</h3>
         <!-- Add image -->
@@ -130,7 +137,8 @@
       </div>
 
       <!-- Card 8: 2023 -->
-      <div>
+      <div class="card-bg-2023">
+        <div class="card-overlay"></div>
         <h2>2023</h2>
         <h3>Renewable Electricity</h3>
         <!-- Add image -->
@@ -144,7 +152,8 @@
       </div>
 
       <!-- Card 9: 2024 -->
-      <div>
+      <div class="card-bg-2024">
+        <div class="card-overlay"></div>
         <h2>2024</h2>
         <h3>Sustainability Summit</h3>
         <!-- Add image -->
@@ -160,4 +169,17 @@
     <p>Scroll to view timeline | Hover over cards to learn more!</p>
   </div>
 </body>
+<script>
+  // Make timeline scroll to the clicked card
+  document.addEventListener('DOMContentLoaded', function() {
+    // Select all timeline cards inside the section
+    var cards = document.querySelectorAll('.main-content-bg section > div');
+    cards.forEach(function(card) {
+      card.addEventListener('click', function() {
+        // Scroll the clicked card into view smoothly, aligned to the start
+        card.scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' });
+      });
+    });
+  });
+</script>
 </html>

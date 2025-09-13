@@ -14,6 +14,22 @@ header {
   padding: 40px 20px 30px 20px;
   background: rgba(0, 0, 0, 0.1); /* Slight overlay for readability */
   border-bottom: 2px solid #fff;
+  display: flex;                /* Use flexbox for layout */
+  flex-direction: column;       /* Stack children vertically */
+  align-items: center;          /* Center children horizontally */
+  justify-content: center;      /* Center children vertically */
+  box-sizing: border-box;       /* Include padding in width */
+}
+
+/* Ensure header content wraps and stays within screen */
+header > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  word-break: break-word;       /* Prevent text overflow */
 }
 
 /* Style the Intel logo */
@@ -71,14 +87,15 @@ header p {
   overflow-x: auto; /* Enable horizontal scrolling */
   gap: 20px;
   padding: 20px 0;
-  /* Hide scrollbar for a cleaner look (optional for beginners) */
   scrollbar-width: thin;
   scrollbar-color: #0071c5 #f4fafd;
+  /* Enable scroll snap for smooth horizontal navigation */
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
 }
 
 /* Style for each milestone (timeline) card */
 .main-content-bg section > div {
-  background: #ffffff; /* White card background */
   border: 2px solid #e3eef7; /* Soft Intel blue border */
   border-radius: 14px; /* Rounded corners */
   min-width: 220px;
@@ -99,6 +116,8 @@ header p {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  /* Add scroll snap alignment for each card */
+  scroll-snap-align: start;
 }
 
 /* Card hover effect with shadow */
@@ -156,21 +175,40 @@ header p {
   display: none;
 }
 
-/* Make sure headings are centered and spaced */
+/* Overlay for year/title for readability */
+.card-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  /* Make the overlay less opaque so the image is more visible */
+  background: rgba(0, 113, 197, 0.30); /* Intel blue with less opacity */
+  border-radius: 14px;
+  z-index: 1;
+  pointer-events: none; /* Let mouse events pass through */
+}
+
+/* Place year and title above overlay */
 .main-content-bg section > div h2,
 .main-content-bg section > div h3 {
-  color: #0071c5;
+  position: relative;
+  z-index: 2;
+  color: #fff; /* White text for contrast on overlay and images */
+  text-shadow: 0 2px 8px rgba(0,0,0,0.25); /* Add shadow for readability */
   margin-top: 0;
   margin-bottom: 8px;
   width: 100%;
+  text-align: center;
 }
 
-/* Card text spacing and color */
-.main-content-bg section > div p {
-  color: #222;
-  margin: 12px 0 0 0;
-  font-size: 1em;
-  line-height: 1.5;
+/* Hide overlay and show info on hover */
+.main-content-bg section > div:hover {
+  background: #fff !important; /* Show white background on hover */
+}
+
+/* Hide overlay and headings on hover */
+.main-content-bg section > div:hover .card-overlay,
+.main-content-bg section > div:hover h2,
+.main-content-bg section > div:hover h3 {
+  display: none;
 }
 
 /* Simple fade-in animation for details */
@@ -201,4 +239,61 @@ header p {
     padding: 12px 4px;
     font-size: 0.95em;
   }
+}
+
+/* background images for each card  */
+.card-bg-1968 {
+  background-image: url('img/Intel1968Founded.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.card-bg-1971 {
+  background-image: url('img/first1971micro.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.card-bg-1978 {
+  background-image: url('img/intel8086processor.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.card-bg-1985 {
+  background-image: url('img/intel1985processor386.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.card-bg-2006 {
+  background-image: url('img/2006intelGHG.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.card-bg-2020 {
+  background-image: url('img/intelRise2020strat.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.card-bg-2022 {
+  background-image: url('img/net0intel2022.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.card-bg-2023 {
+  background-image: url('img/intel2023renewableEnergy.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.card-bg-2024 {
+  background-image: url('img/sustainability2024summit.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
 }
